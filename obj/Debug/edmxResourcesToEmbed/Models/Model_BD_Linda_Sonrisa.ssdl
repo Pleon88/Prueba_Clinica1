@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_Clinica_Linda_sonrisaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+    </Key>
+    <Property Name="id_agenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario_agenda" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_agenda" Type="date" Nullable="false" />
+    <Property Name="status_agenda" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Boleta">
+    <Key>
+      <PropertyRef Name="id_boleta" />
+    </Key>
+    <Property Name="id_boleta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_presupuesto" Type="int" Nullable="false" />
+    <Property Name="monto_boleta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_boleta" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categoria_Insumos">
+    <Key>
+      <PropertyRef Name="id_categoria_Insumos" />
+    </Key>
+    <Property Name="id_categoria_Insumos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoria_insumos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="familia_insumos" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_cliente" Type="int" Nullable="false" />
+    <Property Name="nombre_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AFP_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="finiquito_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="liq_sueldo_cliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdBoleta_cliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comuna">
+    <Key>
+      <PropertyRef Name="id_comuna" />
+    </Key>
+    <Property Name="id_comuna" Type="int" Nullable="false" />
+    <Property Name="nombre_comuna" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_region" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Insumos">
+    <Key>
+      <PropertyRef Name="id_insumos" />
+    </Key>
+    <Property Name="id_insumos" Type="int" Nullable="false" />
+    <Property Name="id_categoria_insumos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut_proveedor_insumos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_venc_insumos" Type="date" Nullable="false" />
+    <Property Name="descrip_insumos" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="stock_insumos" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BD_Clinica_Linda_sonrisa.dbo.Insumos_OrdenPedido' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Insumos_OrdenPedido">
+    <Key>
+      <PropertyRef Name="id_producto" />
+      <PropertyRef Name="id_ordenPedido" />
+      <PropertyRef Name="fecha_creacion" />
+    </Key>
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="id_ordenPedido" Type="int" Nullable="false" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orden_Pedidos">
+    <Key>
+      <PropertyRef Name="id_ordenPedido" />
+    </Key>
+    <Property Name="id_ordenPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rut_proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numero_oPedido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantidad_ordenPedido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+    <Property Name="fecha_actualizada" Type="date" Nullable="false" />
+    <Property Name="status_ordenPedido" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+    </Key>
+    <Property Name="id_presupuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_presupuesto" Type="date" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="id_cliente_presupuesto" Type="int" Nullable="false" />
+    <Property Name="fecha_actualizacion" Type="date" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="detalle_producto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_servicio" Type="int" Nullable="false" />
+    <Property Name="id_insumos" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BD_Clinica_Linda_sonrisa.dbo.Producto_Presupuesto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Producto_Presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+      <PropertyRef Name="id_producto" />
+      <PropertyRef Name="fecha_creacion" />
+    </Key>
+    <Property Name="id_presupuesto" Type="int" Nullable="false" />
+    <Property Name="id_producto" Type="int" Nullable="false" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="rut_proveedor" />
+    </Key>
+    <Property Name="rut_proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="razon_social_prov" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="direccion_proveedor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_region" Type="int" Nullable="false" />
+    <Property Name="id_comuna" Type="int" Nullable="false" />
+    <Property Name="fono_proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email_proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="id_region" />
+    </Key>
+    <Property Name="id_region" Type="int" Nullable="false" />
+    <Property Name="nombre_region" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BD_Clinica_Linda_sonrisa.dbo.Reserva' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+      <PropertyRef Name="status_reserva" />
+      <PropertyRef Name="horario_reserva" />
+    </Key>
+    <Property Name="id_agenda" Type="int" Nullable="false" />
+    <Property Name="status_reserva" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="horario_reserva" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_servicio" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descrip_servicio" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="valor_servicio" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="status_servicio" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="idTipo_usuario" />
+    </Key>
+    <Property Name="idTipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="run_usuario" />
+    </Key>
+    <Property Name="run_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoP_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoM_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_nac_usuario" Type="date" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="direccion_usuario" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="comuna_usuario" Type="int" Nullable="false" />
+    <Property Name="email_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fono_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idTipo_usuario" Type="int" Nullable="false" />
+    <Property Name="idCliente_usuario" Type="int" />
+    <Property Name="persona_cargo" Type="varchar" MaxLength="50" />
+    <Property Name="status_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_creacion" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Boleta_Presupuesto">
+    <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="1" />
+    <End Role="Boleta" Type="Self.Boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="Boleta">
+        <PropertyRef Name="id_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comuna_Región">
+    <End Role="Region" Type="Self.Region" Multiplicity="1" />
+    <End Role="Comuna" Type="Self.Comuna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="id_region" />
+      </Principal>
+      <Dependent Role="Comuna">
+        <PropertyRef Name="id_region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orden_Pedidos_Proveedor1">
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="1" />
+    <End Role="Orden_Pedidos" Type="Self.Orden_Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="rut_proveedor" />
+      </Principal>
+      <Dependent Role="Orden_Pedidos">
+        <PropertyRef Name="rut_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presupuesto_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="Presupuesto">
+        <PropertyRef Name="id_cliente_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Categoria_Producto">
+    <End Role="Categoria_Insumos" Type="Self.Categoria_Insumos" Multiplicity="1" />
+    <End Role="Insumos" Type="Self.Insumos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Insumos">
+        <PropertyRef Name="id_categoria_Insumos" />
+      </Principal>
+      <Dependent Role="Insumos">
+        <PropertyRef Name="id_categoria_insumos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_OrdenPedido_Orden_Pedidos">
+    <End Role="Orden_Pedidos" Type="Self.Orden_Pedidos" Multiplicity="1" />
+    <End Role="Insumos_OrdenPedido" Type="Self.Insumos_OrdenPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden_Pedidos">
+        <PropertyRef Name="id_ordenPedido" />
+      </Principal>
+      <Dependent Role="Insumos_OrdenPedido">
+        <PropertyRef Name="id_ordenPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_OrdenPedido_Producto">
+    <End Role="Insumos" Type="Self.Insumos" Multiplicity="1" />
+    <End Role="Insumos_OrdenPedido" Type="Self.Insumos_OrdenPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="id_insumos" />
+      </Principal>
+      <Dependent Role="Insumos_OrdenPedido">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Presupuesto_Presupuesto">
+    <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="1" />
+    <End Role="Producto_Presupuesto" Type="Self.Producto_Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="Producto_Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Presupuesto_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Producto_Presupuesto" Type="Self.Producto_Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="Producto_Presupuesto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proveedor_Comuna">
+    <End Role="Comuna" Type="Self.Comuna" Multiplicity="1" />
+    <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comuna">
+        <PropertyRef Name="id_comuna" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="id_comuna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Agenda">
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agenda">
+        <PropertyRef Name="id_agenda" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="id_agenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="run_usuario" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="id_usuario_agenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicio_Producto_Producto">
+    <End Role="Insumos" Type="Self.Insumos" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="id_insumos" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_insumos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicio_Producto_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="id_servicio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idCliente_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Comuna">
+    <End Role="Comuna" Type="Self.Comuna" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comuna">
+        <PropertyRef Name="id_comuna" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="comuna_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Tipo_Usuario">
+    <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="idTipo_usuario" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idTipo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BD_Clinica_Linda_sonrisaModelStoreContainer">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Boleta" EntityType="Self.Boleta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria_Insumos" EntityType="Self.Categoria_Insumos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Insumos" EntityType="Self.Insumos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orden_Pedidos" EntityType="Self.Orden_Pedidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Presupuesto" EntityType="Self.Presupuesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Insumos_OrdenPedido" EntityType="Self.Insumos_OrdenPedido" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Insumos_OrdenPedido].[id_producto] AS [id_producto], 
+    [Insumos_OrdenPedido].[id_ordenPedido] AS [id_ordenPedido], 
+    [Insumos_OrdenPedido].[fecha_creacion] AS [fecha_creacion]
+    FROM [dbo].[Insumos_OrdenPedido] AS [Insumos_OrdenPedido]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Producto_Presupuesto" EntityType="Self.Producto_Presupuesto" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Producto_Presupuesto].[id_presupuesto] AS [id_presupuesto], 
+    [Producto_Presupuesto].[id_producto] AS [id_producto], 
+    [Producto_Presupuesto].[fecha_creacion] AS [fecha_creacion]
+    FROM [dbo].[Producto_Presupuesto] AS [Producto_Presupuesto]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Reserva].[id_agenda] AS [id_agenda], 
+    [Reserva].[status_reserva] AS [status_reserva], 
+    [Reserva].[horario_reserva] AS [horario_reserva]
+    FROM [dbo].[Reserva] AS [Reserva]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Boleta_Presupuesto" Association="Self.FK_Boleta_Presupuesto">
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+      <End Role="Boleta" EntitySet="Boleta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comuna_Región" Association="Self.FK_Comuna_Región">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="Comuna" EntitySet="Comuna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orden_Pedidos_Proveedor1" Association="Self.FK_Orden_Pedidos_Proveedor1">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Orden_Pedidos" EntitySet="Orden_Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presupuesto_Cliente" Association="Self.FK_Presupuesto_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Categoria_Producto" Association="Self.FK_Producto_Categoria_Producto">
+      <End Role="Categoria_Insumos" EntitySet="Categoria_Insumos" />
+      <End Role="Insumos" EntitySet="Insumos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_OrdenPedido_Orden_Pedidos" Association="Self.FK_Producto_OrdenPedido_Orden_Pedidos">
+      <End Role="Orden_Pedidos" EntitySet="Orden_Pedidos" />
+      <End Role="Insumos_OrdenPedido" EntitySet="Insumos_OrdenPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_OrdenPedido_Producto" Association="Self.FK_Producto_OrdenPedido_Producto">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Insumos_OrdenPedido" EntitySet="Insumos_OrdenPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Presupuesto_Presupuesto" Association="Self.FK_Producto_Presupuesto_Presupuesto">
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+      <End Role="Producto_Presupuesto" EntitySet="Producto_Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Presupuesto_Producto" Association="Self.FK_Producto_Presupuesto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Producto_Presupuesto" EntitySet="Producto_Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proveedor_Comuna" Association="Self.FK_Proveedor_Comuna">
+      <End Role="Comuna" EntitySet="Comuna" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Agenda" Association="Self.FK_Reserva_Agenda">
+      <End Role="Agenda" EntitySet="Agenda" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Usuario" Association="Self.FK_Reserva_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicio_Producto_Producto" Association="Self.FK_Servicio_Producto_Producto">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicio_Producto_Servicio" Association="Self.FK_Servicio_Producto_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Cliente" Association="Self.FK_Usuario_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Comuna" Association="Self.FK_Usuario_Comuna">
+      <End Role="Comuna" EntitySet="Comuna" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="Self.FK_Usuario_Tipo_Usuario">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

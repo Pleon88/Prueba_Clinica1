@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "InicioSesion";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<h2>Inicio Sesion</h2>
+<hr />
+<h4>@Session["Cusuario"].ToString(): @Session["Nusuario"].ToString()</h4>
+<hr />
+<br />
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        Menú
+    </a>
+    <a href="@Url.Action("Informacion", "Acceso", new { id = Session["Rusuario"].ToString()})" class="list-group-item list-group-item-action">Información Personal</a>
+    <a href="@Url.Content("~/Acceso/SituacionEconomica")" class="list-group-item list-group-item-action">Situación Ecónomica</a>
+    <a href="@Url.Content("~/Acceso/ReservaHora")" class="list-group-item list-group-item-action">Reserva de Hora</a>
+    <a href="@Url.Content("~/Acceso/VerBoleta")" class="list-group-item list-group-item-action">Ver Boletas</a>
+</div>
+<br />

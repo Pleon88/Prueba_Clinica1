@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_Clinica_Linda_sonrisaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BD_Clinica_Linda_sonrisaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agenda" EntityType="BD_Clinica_Linda_sonrisaModel.Agenda" />
+    <EntitySet Name="Boleta" EntityType="BD_Clinica_Linda_sonrisaModel.Boleta" />
+    <EntitySet Name="Categoria_Insumos" EntityType="BD_Clinica_Linda_sonrisaModel.Categoria_Insumos" />
+    <EntitySet Name="Cliente" EntityType="BD_Clinica_Linda_sonrisaModel.Cliente" />
+    <EntitySet Name="Comuna" EntityType="BD_Clinica_Linda_sonrisaModel.Comuna" />
+    <EntitySet Name="Insumos" EntityType="BD_Clinica_Linda_sonrisaModel.Insumos" />
+    <EntitySet Name="Orden_Pedidos" EntityType="BD_Clinica_Linda_sonrisaModel.Orden_Pedidos" />
+    <EntitySet Name="Presupuesto" EntityType="BD_Clinica_Linda_sonrisaModel.Presupuesto" />
+    <EntitySet Name="Producto" EntityType="BD_Clinica_Linda_sonrisaModel.Producto" />
+    <EntitySet Name="Proveedor" EntityType="BD_Clinica_Linda_sonrisaModel.Proveedor" />
+    <EntitySet Name="Region" EntityType="BD_Clinica_Linda_sonrisaModel.Region" />
+    <EntitySet Name="Servicio" EntityType="BD_Clinica_Linda_sonrisaModel.Servicio" />
+    <EntitySet Name="sysdiagrams" EntityType="BD_Clinica_Linda_sonrisaModel.sysdiagrams" />
+    <EntitySet Name="Tipo_Usuario" EntityType="BD_Clinica_Linda_sonrisaModel.Tipo_Usuario" />
+    <EntitySet Name="Usuario" EntityType="BD_Clinica_Linda_sonrisaModel.Usuario" />
+    <EntitySet Name="Insumos_OrdenPedido" EntityType="BD_Clinica_Linda_sonrisaModel.Insumos_OrdenPedido" />
+    <EntitySet Name="Producto_Presupuesto" EntityType="BD_Clinica_Linda_sonrisaModel.Producto_Presupuesto" />
+    <EntitySet Name="Reserva" EntityType="BD_Clinica_Linda_sonrisaModel.Reserva" />
+    <AssociationSet Name="FK_Reserva_Agenda" Association="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Agenda">
+      <End Role="Agenda" EntitySet="Agenda" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reserva_Usuario" Association="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Boleta_Presupuesto" Association="BD_Clinica_Linda_sonrisaModel.FK_Boleta_Presupuesto">
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+      <End Role="Boleta" EntitySet="Boleta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Categoria_Producto" Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Categoria_Producto">
+      <End Role="Categoria_Insumos" EntitySet="Categoria_Insumos" />
+      <End Role="Insumos" EntitySet="Insumos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Presupuesto_Cliente" Association="BD_Clinica_Linda_sonrisaModel.FK_Presupuesto_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Cliente" Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comuna_Región" Association="BD_Clinica_Linda_sonrisaModel.FK_Comuna_Región">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="Comuna" EntitySet="Comuna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proveedor_Comuna" Association="BD_Clinica_Linda_sonrisaModel.FK_Proveedor_Comuna">
+      <End Role="Comuna" EntitySet="Comuna" />
+      <End Role="Proveedor" EntitySet="Proveedor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Comuna" Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Comuna">
+      <End Role="Comuna" EntitySet="Comuna" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_OrdenPedido_Producto" Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Producto">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Insumos_OrdenPedido" EntitySet="Insumos_OrdenPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicio_Producto_Producto" Association="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Producto">
+      <End Role="Insumos" EntitySet="Insumos" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orden_Pedidos_Proveedor1" Association="BD_Clinica_Linda_sonrisaModel.FK_Orden_Pedidos_Proveedor1">
+      <End Role="Proveedor" EntitySet="Proveedor" />
+      <End Role="Orden_Pedidos" EntitySet="Orden_Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_OrdenPedido_Orden_Pedidos" Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Orden_Pedidos">
+      <End Role="Orden_Pedidos" EntitySet="Orden_Pedidos" />
+      <End Role="Insumos_OrdenPedido" EntitySet="Insumos_OrdenPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Presupuesto_Presupuesto" Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Presupuesto">
+      <End Role="Presupuesto" EntitySet="Presupuesto" />
+      <End Role="Producto_Presupuesto" EntitySet="Producto_Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Presupuesto_Producto" Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="Producto_Presupuesto" EntitySet="Producto_Presupuesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicio_Producto_Servicio" Association="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Tipo_Usuario" Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Tipo_Usuario">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+    </Key>
+    <Property Name="id_agenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario_agenda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_agenda" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="status_agenda" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Reserva" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Agenda" FromRole="Agenda" ToRole="Reserva" />
+    <NavigationProperty Name="Usuario" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Usuario" FromRole="Agenda" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Boleta">
+    <Key>
+      <PropertyRef Name="id_boleta" />
+    </Key>
+    <Property Name="id_boleta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_presupuesto" Type="Int32" Nullable="false" />
+    <Property Name="monto_boleta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_boleta" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Presupuesto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Boleta_Presupuesto" FromRole="Boleta" ToRole="Presupuesto" />
+  </EntityType>
+  <EntityType Name="Categoria_Insumos">
+    <Key>
+      <PropertyRef Name="id_categoria_Insumos" />
+    </Key>
+    <Property Name="id_categoria_Insumos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoria_insumos1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="familia_insumos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Insumos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Categoria_Producto" FromRole="Categoria_Insumos" ToRole="Insumos" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id_cliente" />
+    </Key>
+    <Property Name="Id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AFP_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="finiquito_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="liq_sueldo_cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdBoleta_cliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Presupuesto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Presupuesto_Cliente" FromRole="Cliente" ToRole="Presupuesto" />
+    <NavigationProperty Name="Usuario" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Cliente" FromRole="Cliente" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Comuna">
+    <Key>
+      <PropertyRef Name="id_comuna" />
+    </Key>
+    <Property Name="id_comuna" Type="Int32" Nullable="false" />
+    <Property Name="nombre_comuna" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_region" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Comuna_Región" FromRole="Comuna" ToRole="Region" />
+    <NavigationProperty Name="Proveedor" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Proveedor_Comuna" FromRole="Comuna" ToRole="Proveedor" />
+    <NavigationProperty Name="Usuario" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Comuna" FromRole="Comuna" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Insumos">
+    <Key>
+      <PropertyRef Name="id_insumos" />
+    </Key>
+    <Property Name="id_insumos" Type="Int32" Nullable="false" />
+    <Property Name="id_categoria_insumos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut_proveedor_insumos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_venc_insumos" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="descrip_insumos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="stock_insumos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categoria_Insumos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Categoria_Producto" FromRole="Insumos" ToRole="Categoria_Insumos" />
+    <NavigationProperty Name="Insumos_OrdenPedido" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Producto" FromRole="Insumos" ToRole="Insumos_OrdenPedido" />
+    <NavigationProperty Name="Producto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Producto" FromRole="Insumos" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Orden_Pedidos">
+    <Key>
+      <PropertyRef Name="id_ordenPedido" />
+    </Key>
+    <Property Name="id_ordenPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rut_proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numero_oPedido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cantidad_ordenPedido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_actualizada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="status_ordenPedido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Proveedor" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Orden_Pedidos_Proveedor1" FromRole="Orden_Pedidos" ToRole="Proveedor" />
+    <NavigationProperty Name="Insumos_OrdenPedido" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Orden_Pedidos" FromRole="Orden_Pedidos" ToRole="Insumos_OrdenPedido" />
+  </EntityType>
+  <EntityType Name="Presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+    </Key>
+    <Property Name="id_presupuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_presupuesto" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_producto" Type="Int32" Nullable="false" />
+    <Property Name="id_cliente_presupuesto" Type="Int32" Nullable="false" />
+    <Property Name="fecha_actualizacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Boleta" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Boleta_Presupuesto" FromRole="Presupuesto" ToRole="Boleta" />
+    <NavigationProperty Name="Cliente" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Presupuesto_Cliente" FromRole="Presupuesto" ToRole="Cliente" />
+    <NavigationProperty Name="Producto_Presupuesto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Presupuesto" FromRole="Presupuesto" ToRole="Producto_Presupuesto" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id_producto" />
+    </Key>
+    <Property Name="Id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="detalle_producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_servicio" Type="Int32" Nullable="false" />
+    <Property Name="id_insumos" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Insumos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Producto" FromRole="Producto" ToRole="Insumos" />
+    <NavigationProperty Name="Producto_Presupuesto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Producto" FromRole="Producto" ToRole="Producto_Presupuesto" />
+    <NavigationProperty Name="Servicio" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Servicio" FromRole="Producto" ToRole="Servicio" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="rut_proveedor" />
+    </Key>
+    <Property Name="rut_proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="razon_social_prov" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_proveedor" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_region" Type="Int32" Nullable="false" />
+    <Property Name="id_comuna" Type="Int32" Nullable="false" />
+    <Property Name="fono_proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email_proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Comuna" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Proveedor_Comuna" FromRole="Proveedor" ToRole="Comuna" />
+    <NavigationProperty Name="Orden_Pedidos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Orden_Pedidos_Proveedor1" FromRole="Proveedor" ToRole="Orden_Pedidos" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="id_region" />
+    </Key>
+    <Property Name="id_region" Type="Int32" Nullable="false" />
+    <Property Name="nombre_region" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Comuna" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Comuna_Región" FromRole="Region" ToRole="Comuna" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_servicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descrip_servicio" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="valor_servicio" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="status_servicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Servicio" FromRole="Servicio" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="idTipo_usuario" />
+    </Key>
+    <Property Name="idTipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Tipo_Usuario" FromRole="Tipo_Usuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="run_usuario" />
+    </Key>
+    <Property Name="run_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoP_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoM_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nac_usuario" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion_usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="comuna_usuario" Type="Int32" Nullable="false" />
+    <Property Name="email_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fono_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idTipo_usuario" Type="Int32" Nullable="false" />
+    <Property Name="idCliente_usuario" Type="Int32" />
+    <Property Name="persona_cargo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status_usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Agenda" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Usuario" FromRole="Usuario" ToRole="Agenda" />
+    <NavigationProperty Name="Cliente" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Cliente" FromRole="Usuario" ToRole="Cliente" />
+    <NavigationProperty Name="Comuna" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Comuna" FromRole="Usuario" ToRole="Comuna" />
+    <NavigationProperty Name="Tipo_Usuario" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Tipo_Usuario" FromRole="Usuario" ToRole="Tipo_Usuario" />
+  </EntityType>
+  <EntityType Name="Insumos_OrdenPedido">
+    <Key>
+      <PropertyRef Name="id_producto" />
+      <PropertyRef Name="id_ordenPedido" />
+      <PropertyRef Name="fecha_creacion" />
+    </Key>
+    <Property Name="id_producto" Type="Int32" Nullable="false" />
+    <Property Name="id_ordenPedido" Type="Int32" Nullable="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Insumos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Producto" FromRole="Insumos_OrdenPedido" ToRole="Insumos" />
+    <NavigationProperty Name="Orden_Pedidos" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Orden_Pedidos" FromRole="Insumos_OrdenPedido" ToRole="Orden_Pedidos" />
+  </EntityType>
+  <EntityType Name="Producto_Presupuesto">
+    <Key>
+      <PropertyRef Name="id_presupuesto" />
+      <PropertyRef Name="id_producto" />
+      <PropertyRef Name="fecha_creacion" />
+    </Key>
+    <Property Name="id_presupuesto" Type="Int32" Nullable="false" />
+    <Property Name="id_producto" Type="Int32" Nullable="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Presupuesto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Presupuesto" FromRole="Producto_Presupuesto" ToRole="Presupuesto" />
+    <NavigationProperty Name="Producto" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Producto" FromRole="Producto_Presupuesto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+      <PropertyRef Name="status_reserva" />
+      <PropertyRef Name="horario_reserva" />
+    </Key>
+    <Property Name="id_agenda" Type="Int32" Nullable="false" />
+    <Property Name="status_reserva" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="horario_reserva" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Agenda" Relationship="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Agenda" FromRole="Reserva" ToRole="Agenda" />
+  </EntityType>
+  <Association Name="FK_Reserva_Agenda">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Agenda" Role="Agenda" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Reserva" Role="Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agenda">
+        <PropertyRef Name="id_agenda" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="id_agenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reserva_Usuario">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Agenda" Role="Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="run_usuario" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="id_usuario_agenda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Boleta_Presupuesto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Presupuesto" Role="Presupuesto" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Boleta" Role="Boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="Boleta">
+        <PropertyRef Name="id_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Categoria_Producto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Categoria_Insumos" Role="Categoria_Insumos" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Insumos" Role="Insumos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria_Insumos">
+        <PropertyRef Name="id_categoria_Insumos" />
+      </Principal>
+      <Dependent Role="Insumos">
+        <PropertyRef Name="id_categoria_insumos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Presupuesto_Cliente">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Presupuesto" Role="Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="Presupuesto">
+        <PropertyRef Name="id_cliente_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Cliente">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Cliente" Role="Cliente" Multiplicity="0..1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id_cliente" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idCliente_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comuna_Región">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Region" Role="Region" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Comuna" Role="Comuna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="id_region" />
+      </Principal>
+      <Dependent Role="Comuna">
+        <PropertyRef Name="id_region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proveedor_Comuna">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Comuna" Role="Comuna" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Proveedor" Role="Proveedor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comuna">
+        <PropertyRef Name="id_comuna" />
+      </Principal>
+      <Dependent Role="Proveedor">
+        <PropertyRef Name="id_comuna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Comuna">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Comuna" Role="Comuna" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comuna">
+        <PropertyRef Name="id_comuna" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="comuna_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_OrdenPedido_Producto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Insumos" Role="Insumos" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Insumos_OrdenPedido" Role="Insumos_OrdenPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="id_insumos" />
+      </Principal>
+      <Dependent Role="Insumos_OrdenPedido">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicio_Producto_Producto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Insumos" Role="Insumos" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Insumos">
+        <PropertyRef Name="id_insumos" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_insumos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orden_Pedidos_Proveedor1">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Proveedor" Role="Proveedor" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Orden_Pedidos" Role="Orden_Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedor">
+        <PropertyRef Name="rut_proveedor" />
+      </Principal>
+      <Dependent Role="Orden_Pedidos">
+        <PropertyRef Name="rut_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_OrdenPedido_Orden_Pedidos">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Orden_Pedidos" Role="Orden_Pedidos" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Insumos_OrdenPedido" Role="Insumos_OrdenPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden_Pedidos">
+        <PropertyRef Name="id_ordenPedido" />
+      </Principal>
+      <Dependent Role="Insumos_OrdenPedido">
+        <PropertyRef Name="id_ordenPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Presupuesto_Presupuesto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Presupuesto" Role="Presupuesto" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Producto_Presupuesto" Role="Producto_Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Principal>
+      <Dependent Role="Producto_Presupuesto">
+        <PropertyRef Name="id_presupuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Presupuesto_Producto">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Producto" Role="Producto" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Producto_Presupuesto" Role="Producto_Presupuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id_producto" />
+      </Principal>
+      <Dependent Role="Producto_Presupuesto">
+        <PropertyRef Name="id_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicio_Producto_Servicio">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Servicio" Role="Servicio" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="id_servicio" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="id_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Tipo_Usuario">
+    <End Type="BD_Clinica_Linda_sonrisaModel.Tipo_Usuario" Role="Tipo_Usuario" Multiplicity="1" />
+    <End Type="BD_Clinica_Linda_sonrisaModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="idTipo_usuario" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idTipo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

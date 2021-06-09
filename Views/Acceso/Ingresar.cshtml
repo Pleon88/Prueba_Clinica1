@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Ingresar";
+}
+
+<h2>Iniciar Sección</h2>
+<div class="form-group media justify-content-center">
+    <form id="frm">
+        <div class="input-group-text">
+            <div class="form-group col-1 col-lg-11">
+                <strong>Usuario</strong>
+                <div class="form-group">
+                    <input type="text" name="Usuario" placeholder="Usuario" />
+                </div>
+                <strong>Password</strong>
+                <div class="form-group">
+                    <input type="password" name="Password" placeholder="Contraseña" />
+                </div>
+                <input type="submit" class="btn btn-success" value="Entrar" /> |
+                <a href="@Url.Content("~/Usuarios/Crear")" class="btn btn-default">Crear Cuenta</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+    <script>
+    $(document).ready(function () {
+
+        $("#frm").submit(function (e) {
+            e.preventDefault();
+
+            url="@Url.Content("~/Acceso/Enter")"
+            parametros = $(this).serialize();
+
+            $.post(url, parametros, function (data) {
+
+                if (data=="1") {
+                    document.location.href = "@Url.Content("~/Acceso/InicioSesion")";
+                } else {
+                    alert(data)
+                }
+            })
+        })
+    })
+    </script>
+}
+

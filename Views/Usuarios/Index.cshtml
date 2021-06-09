@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Prueba_Clinica.Models.Usuario>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Usuarios</h2>
+
+<p>
+    <input onclick="document.location.href='@Url.Action("Crear", "Usuarios")'" type="button" value="Crear" class="btn btn-success" />
+</p>
+
+<div class=" table-responsive col-auto">
+    <table class="table table-hover text-truncate">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Nombre:
+                </th>
+                <th>
+                    Apellido Paterno:
+                </th>
+                <th>
+                    Apellido Materno:
+                </th>
+                <th>
+                    Fecha de Nacimiento:
+                </th>
+                <th>
+                    Usuario:
+                </th>
+                <th>
+                    Contraseña:
+                </th>
+                <th>
+                    Dirección:
+                </th>
+                <th>
+                    Región:
+                </th>
+                <th>
+                    Comuna:
+                </th>
+                <th>
+                    Email:
+                </th>
+                <th>
+                    Fono:
+                </th>
+                <th>
+                    RUN Persona Cargo:
+                </th>
+                <th>
+                    Categoria:
+                </th>
+                <th>
+                    Status:
+                </th>
+                <th>
+                    Fecha Creación:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoP_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidoM_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_nac_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comuna.id_region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comuna.nombre_comuna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fono_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.persona_cargo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Usuario.nombre_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_creacion)
+        </td>
+        <td>
+            <input onclick="document.location.href='@Url.Action("Details", "Usuarios", new { id = item.run_usuario })'" type="button" value="Ver" class="btn btn-outline-warning" /> |
+            <input onclick="document.location.href='@Url.Action("Modificar", "Usuarios", new { id = item.run_usuario })'" type="button" value="Modificar" class="btn btn-outline-dark" /> |
+            <input onclick="document.location.href='@Url.Action("Delete", "Usuarios", new { id = item.run_usuario })'" type="button" value="Eliminar" class="btn btn-outline-danger" />
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>

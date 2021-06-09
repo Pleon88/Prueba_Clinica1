@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_Clinica_Linda_sonrisaModelStoreContainer" CdmEntityContainer="BD_Clinica_Linda_sonrisaEntities">
+    <EntitySetMapping Name="Agenda">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Agenda">
+        <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="status_agenda" ColumnName="status_agenda" />
+          <ScalarProperty Name="fecha_agenda" ColumnName="fecha_agenda" />
+          <ScalarProperty Name="id_usuario_agenda" ColumnName="id_usuario_agenda" />
+          <ScalarProperty Name="id_agenda" ColumnName="id_agenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Boleta">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Boleta">
+        <MappingFragment StoreEntitySet="Boleta">
+          <ScalarProperty Name="fecha_boleta" ColumnName="fecha_boleta" />
+          <ScalarProperty Name="monto_boleta" ColumnName="monto_boleta" />
+          <ScalarProperty Name="id_presupuesto" ColumnName="id_presupuesto" />
+          <ScalarProperty Name="id_boleta" ColumnName="id_boleta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria_Insumos">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Categoria_Insumos">
+        <MappingFragment StoreEntitySet="Categoria_Insumos">
+          <ScalarProperty Name="familia_insumos" ColumnName="familia_insumos" />
+          <ScalarProperty Name="categoria_insumos1" ColumnName="categoria_insumos" />
+          <ScalarProperty Name="id_categoria_Insumos" ColumnName="id_categoria_Insumos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdBoleta_cliente" ColumnName="IdBoleta_cliente" />
+          <ScalarProperty Name="liq_sueldo_cliente" ColumnName="liq_sueldo_cliente" />
+          <ScalarProperty Name="finiquito_cliente" ColumnName="finiquito_cliente" />
+          <ScalarProperty Name="AFP_cliente" ColumnName="AFP_cliente" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="Id_cliente" ColumnName="Id_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comuna">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Comuna">
+        <MappingFragment StoreEntitySet="Comuna">
+          <ScalarProperty Name="id_region" ColumnName="id_region" />
+          <ScalarProperty Name="nombre_comuna" ColumnName="nombre_comuna" />
+          <ScalarProperty Name="id_comuna" ColumnName="id_comuna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insumos">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Insumos">
+        <MappingFragment StoreEntitySet="Insumos">
+          <ScalarProperty Name="stock_insumos" ColumnName="stock_insumos" />
+          <ScalarProperty Name="descrip_insumos" ColumnName="descrip_insumos" />
+          <ScalarProperty Name="fecha_venc_insumos" ColumnName="fecha_venc_insumos" />
+          <ScalarProperty Name="rut_proveedor_insumos" ColumnName="rut_proveedor_insumos" />
+          <ScalarProperty Name="id_categoria_insumos" ColumnName="id_categoria_insumos" />
+          <ScalarProperty Name="id_insumos" ColumnName="id_insumos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orden_Pedidos">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Orden_Pedidos">
+        <MappingFragment StoreEntitySet="Orden_Pedidos">
+          <ScalarProperty Name="status_ordenPedido" ColumnName="status_ordenPedido" />
+          <ScalarProperty Name="fecha_actualizada" ColumnName="fecha_actualizada" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="cantidad_ordenPedido" ColumnName="cantidad_ordenPedido" />
+          <ScalarProperty Name="numero_oPedido" ColumnName="numero_oPedido" />
+          <ScalarProperty Name="rut_proveedor" ColumnName="rut_proveedor" />
+          <ScalarProperty Name="id_ordenPedido" ColumnName="id_ordenPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presupuesto">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Presupuesto">
+        <MappingFragment StoreEntitySet="Presupuesto">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+          <ScalarProperty Name="id_cliente_presupuesto" ColumnName="id_cliente_presupuesto" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="fecha_presupuesto" ColumnName="fecha_presupuesto" />
+          <ScalarProperty Name="id_presupuesto" ColumnName="id_presupuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="id_insumos" ColumnName="id_insumos" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="detalle_producto" ColumnName="detalle_producto" />
+          <ScalarProperty Name="Id_producto" ColumnName="Id_producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedor">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Proveedor">
+        <MappingFragment StoreEntitySet="Proveedor">
+          <ScalarProperty Name="email_proveedor" ColumnName="email_proveedor" />
+          <ScalarProperty Name="fono_proveedor" ColumnName="fono_proveedor" />
+          <ScalarProperty Name="id_comuna" ColumnName="id_comuna" />
+          <ScalarProperty Name="id_region" ColumnName="id_region" />
+          <ScalarProperty Name="direccion_proveedor" ColumnName="direccion_proveedor" />
+          <ScalarProperty Name="razon_social_prov" ColumnName="razon_social_prov" />
+          <ScalarProperty Name="rut_proveedor" ColumnName="rut_proveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Region">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="nombre_region" ColumnName="nombre_region" />
+          <ScalarProperty Name="id_region" ColumnName="id_region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="status_servicio" ColumnName="status_servicio" />
+          <ScalarProperty Name="valor_servicio" ColumnName="valor_servicio" />
+          <ScalarProperty Name="descrip_servicio" ColumnName="descrip_servicio" />
+          <ScalarProperty Name="nombre_servicio" ColumnName="nombre_servicio" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Usuario">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Tipo_Usuario">
+        <MappingFragment StoreEntitySet="Tipo_Usuario">
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="idTipo_usuario" ColumnName="idTipo_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="status_usuario" ColumnName="status_usuario" />
+          <ScalarProperty Name="persona_cargo" ColumnName="persona_cargo" />
+          <ScalarProperty Name="idCliente_usuario" ColumnName="idCliente_usuario" />
+          <ScalarProperty Name="idTipo_usuario" ColumnName="idTipo_usuario" />
+          <ScalarProperty Name="fono_usuario" ColumnName="fono_usuario" />
+          <ScalarProperty Name="email_usuario" ColumnName="email_usuario" />
+          <ScalarProperty Name="comuna_usuario" ColumnName="comuna_usuario" />
+          <ScalarProperty Name="direccion_usuario" ColumnName="direccion_usuario" />
+          <ScalarProperty Name="password_usuario" ColumnName="password_usuario" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="fecha_nac_usuario" ColumnName="fecha_nac_usuario" />
+          <ScalarProperty Name="apellidoM_usuario" ColumnName="apellidoM_usuario" />
+          <ScalarProperty Name="apellidoP_usuario" ColumnName="apellidoP_usuario" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="run_usuario" ColumnName="run_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insumos_OrdenPedido">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Insumos_OrdenPedido">
+        <MappingFragment StoreEntitySet="Insumos_OrdenPedido">
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="id_ordenPedido" ColumnName="id_ordenPedido" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto_Presupuesto">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Producto_Presupuesto">
+        <MappingFragment StoreEntitySet="Producto_Presupuesto">
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+          <ScalarProperty Name="id_presupuesto" ColumnName="id_presupuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reserva">
+      <EntityTypeMapping TypeName="BD_Clinica_Linda_sonrisaModel.Reserva">
+        <MappingFragment StoreEntitySet="Reserva">
+          <ScalarProperty Name="horario_reserva" ColumnName="horario_reserva" />
+          <ScalarProperty Name="status_reserva" ColumnName="status_reserva" />
+          <ScalarProperty Name="id_agenda" ColumnName="id_agenda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

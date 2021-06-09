@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fcda7372c91844efb4bdb9bfee715a17" Name="Diagram1" SnapToGrid="true">
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Agenda" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Boleta" Width="1.5" PointX="5.25" PointY="14.25" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Categoria_Insumos" Width="1.5" PointX="1.5" PointY="23.25" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Cliente" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Comuna" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Insumos" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Orden_Pedidos" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Presupuesto" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Producto" Width="1.5" PointX="3" PointY="19.375" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Proveedor" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Region" Width="1.5" PointX="1.5" PointY="15.375" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Servicio" Width="1.5" PointX="0.75" PointY="26.25" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Tipo_Usuario" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Usuario" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Insumos_OrdenPedido" Width="1.5" PointX="7.5" PointY="10" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Producto_Presupuesto" Width="1.5" PointX="5.25" PointY="11.625" />
+        <EntityTypeShape EntityType="BD_Clinica_Linda_sonrisaModel.Reserva" Width="1.5" PointX="7.5" PointY="6" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Agenda" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Reserva_Usuario" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Boleta_Presupuesto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Categoria_Producto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Presupuesto_Cliente" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Cliente" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Comuna_Región" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Proveedor_Comuna" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Comuna" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Producto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Producto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Orden_Pedidos_Proveedor1" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_OrdenPedido_Orden_Pedidos" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Presupuesto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Producto_Presupuesto_Producto" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Servicio_Producto_Servicio" />
+        <AssociationConnector Association="BD_Clinica_Linda_sonrisaModel.FK_Usuario_Tipo_Usuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
